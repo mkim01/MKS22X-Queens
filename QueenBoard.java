@@ -62,6 +62,13 @@ public class QueenBoard{
 
   */
   public boolean solve(){
+    int start = board[0][0];
+    for (int k = 1; k < board.legnth; k++){
+        if (board[i + k][j + k]  == 1 || board[i][j + k] == 1 || board[i + k][j] == 1){
+          return solve();
+        }
+
+      }
     return true;
   }
 
