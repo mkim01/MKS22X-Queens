@@ -36,7 +36,21 @@ public class QueenBoard{
   *excludes the character up to the *)
   */
   public String toString(){
-    return "";
+    String result = "";
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board.length; j++){
+        if (board[i][j] == 1){
+          result += "Q ";
+        }
+        else {
+          result += "_ ";
+        }
+        if (j == board.length - 1){
+          result += "\n";
+        }
+      }
+    }
+    return result;
   }
 
   /**
@@ -58,4 +72,11 @@ public class QueenBoard{
   public int countSolutions(){
     return 0;
   }
+
+  public static void main (String[] args){
+    QueenBoard test = new QueenBoard(4);
+    test.addQueen(2,2);
+    System.out.println(test);
+  }
+
   }
