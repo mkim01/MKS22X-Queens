@@ -62,13 +62,45 @@ public class QueenBoard{
 
   */
   public boolean solve(){
-    int start = board[0][0];
-    for (int k = 1; k < board.legnth; k++){
-        if (board[i + k][j + k]  == 1 || board[i][j + k] == 1 || board[i + k][j] == 1){
-          return solve();
-        }
+    if (board.length < 0){
+      throw new IllegalStateException("");
+    }
+    return true;
+  }
 
+  public boolean check(int[][] board, int row, int col){
+    for(int i = 0; i < col; i++){
+      if (board[row][i] == 1){
+        return false;
       }
+    }
+    for(int j = col; j > 0; j --){
+      if (board[row - j][col - j] == 1){
+        return false;
+      }
+    }
+    for(int k = 0; k < board.length; k++){
+      if (board[row + k][col + k] == 1){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public boolean helper(int[][] board, int col){
+    // boolean sol = true;
+    // this.board = board;
+    // if(col >= board.length){
+    //   return true;
+    // }
+    // else{
+    //   for(int i = 0; i < board.length; i++){
+    //     if(check(board, i, col)){
+    //       board[col][i] = 1;
+    //     }
+    //   }
+    //   return helper(board, col - 1);
+    // }
     return true;
   }
 
@@ -81,8 +113,9 @@ public class QueenBoard{
   }
 
   public static void main (String[] args){
-    QueenBoard test = new QueenBoard(4);
+    QueenBoard test = new QueenBoard(10);
     test.addQueen(2,2);
+    test.removeQueen(2,2);
     System.out.println(test);
   }
 
