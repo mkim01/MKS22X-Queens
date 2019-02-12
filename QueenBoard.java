@@ -63,20 +63,6 @@ public class QueenBoard{
       return true;
     }
 
-  /**
-  *@return The output string formatted as follows:
-  *All numbers that represent queens are replaced with 'Q'
-  *all others are displayed as underscores '_'
-  *There are spaces between each symbol:
-  *"""_ _ Q _
-  *Q _ _ _
-
-  *_ _ _ Q
-
-  *_ Q _ _"""
-  *(pythonic string notation for clarity,
-  *excludes the character up to the *)
-  */
   public String toString(){
     String result = "";
     for (int i = 0; i < board.length; i++){
@@ -104,10 +90,7 @@ public class QueenBoard{
 
   */
   public boolean solve(){
-    if (board.length < 0){
-      throw new IllegalStateException("");
-    }
-    return true;
+    return solveR(0);
   }
   // boolean solveR(int col)
   //  if col is past end of board:
@@ -132,50 +115,13 @@ public class QueenBoard{
       }
     }
     return false;
-  }
-
-
-  // public boolean check(int[][] board, int row, int col){
-  //   for(int i = 0; i < col; i++){
-  //     if (board[row][i] == 1){
-  //       return false;
-  //     }
-  //   }
-  //   for(int a = row; j > 0; j  ){
-  //     if (board[row - j][col - j] == 1){
-  //       return false;
-  //     }
-  //   }
-  //   for(int k = 0; k < board.length; k++){
-  //     if (board[row + k][col + k] == 1){
-  //       return false;
-  //     }
-  //   }
-  //   return true;
-  // }
-  //
-  // public boolean helper(int[][] board, int col){
-  //   if(col >= board.length){
-  //     return true;
-  //   }
-  //   else{
-  //     for(int i = 0; i < board.length; i++){
-  //       if(check(board, i, col)){
-  //         board[col][i] = 1;
-  //       }
-  //     }
-  //     return helper(board, col - 1);
-  //   }
-  //   return true;
-  // }
+  } 
 
   /**
   *@return the number of solutions found, and leaves the board filled with only 0's
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
-
-
 
     return 0;
   }
@@ -184,7 +130,7 @@ public class QueenBoard{
   public static void main (String[] args){
     QueenBoard test = new QueenBoard(10);
     test.addQueen(2,2);
-    test.removeQueen(2,2);
+  //  test.removeQueen(2,2);
     System.out.println(test);
   }
 
