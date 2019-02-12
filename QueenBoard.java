@@ -27,7 +27,7 @@ public class QueenBoard{
         board[r + 1][c + 1] = board[r + 1][c + 1] - 1;
       }
       for (int d2 = 1; r >= d2 && c < board.length - d2; d2++){
-        board[r - d2][c + d2] = board[r - d2][c + d2] + 1;
+        board[r - d2][c + d2] = board[r - d2][c + d2] - 1;
       }
       return true;
     }
@@ -37,9 +37,30 @@ public class QueenBoard{
   private boolean removeQueen(int r, int c){
     if (board[r][c] == 1){
       board[r][c] = 0;
-      return true;
+      //vertical
+      for (int v1 = r - 1; v1 >= 0; v1--){
+        board[v1][c] = board[v1][c] + 1;
+      }
+      for (int v2 = r + 1; v2 < board.length; v2++){
+        board[v2][c] = board[v2][c] + 1;
+      }
+      //horizontal
+      for (int h1 = c - 1; h1 >= 0; h1-- ){
+        board[r][h1] = board[r][h1] + 1;
+      }
+      for (int h2 = c + 1; h2 < board.length; h2++){
+        board[r][h2] = board[r][h2] + 1;
+      }
+      //diagonal
+      for (int d1 = 1; r < board.length - d1 && c < board.length - d1; d1++){
+        board[r + 1][c + 1] = board[r + 1][c + 1] + 1;
+      }
+      for (int d2 = 1; r >= d2 && c < board.length - d2; d2++){
+        board[r - d2][c + d2] = board[r - d2][c + d2] + 1;
+      }
+      return false;
     }
-    return false;
+      return true;
     }
 
   /**
