@@ -168,7 +168,7 @@ public class QueenBoard{
     for (int i = 0; i < board.length; i++){
       for (int j = 0; j < board.length; j++){
         if(board[i][j]!=0){
-          throw new IllegalStateException();
+          throw new IllegalStateException("");
         }
       }
     }
@@ -190,10 +190,20 @@ public class QueenBoard{
   }
 
   public static void main (String[] args){
-    QueenBoard test = new QueenBoard(10);
-    test.addQueen(2,2);
-  //  test.removeQueen(2,2);
-    System.out.println(test);
+    QueenBoard board1 = new QueenBoard(5);
+    QueenBoard board1c = new QueenBoard(5);
+    System.out.println(board1);
+    System.out.println(board1.solve());
+    System.out.println(board1);
+    System.out.println(board1c.countSolutions());
+    //System.out.print(board1.solve());
+    QueenBoard board2 = new QueenBoard(10);
+    QueenBoard board2c = new QueenBoard(10);
+    System.out.println(board2);
+    System.out.println(board2.solve());
+    System.out.println(board2);
+    System.out.println(board2c.countSolutions());
+  //  System.out.print(board2.solve());
   }
 
   }
