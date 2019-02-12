@@ -90,6 +90,13 @@ public class QueenBoard{
 
   */
   public boolean solve(){
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board.length; j++){
+        if(board[i][j]!=0){
+          throw new IllegalStateException("");
+        }
+      }
+    }
     return solveR(0);
   }
   // boolean solveR(int col)
@@ -115,17 +122,64 @@ public class QueenBoard{
       }
     }
     return false;
-  } 
+  }
+
+
+  // public boolean check(int[][] board, int row, int col){
+  //   for(int i = 0; i < col; i++){
+  //     if (board[row][i] == 1){
+  //       return false;
+  //     }
+  //   }
+  //   for(int a = row; j > 0; j  ){
+  //     if (board[row - j][col - j] == 1){
+  //       return false;
+  //     }
+  //   }
+  //   for(int k = 0; k < board.length; k++){
+  //     if (board[row + k][col + k] == 1){
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
+  //
+  // public boolean helper(int[][] board, int col){
+  //   if(col >= board.length){
+  //     return true;
+  //   }
+  //   else{
+  //     for(int i = 0; i < board.length; i++){
+  //       if(check(board, i, col)){
+  //         board[col][i] = 1;
+  //       }
+  //     }
+  //     return helper(board, col - 1);
+  //   }
+  //   return true;
+  // }
 
   /**
   *@return the number of solutions found, and leaves the board filled with only 0's
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
-
     return 0;
   }
 
+  public int countR(int col){
+    int nums = 0;
+    if (c >= board.length){
+      return 1;
+    }
+    for (int r = 0; r < board.length; r++){
+      if (addQueen(r,c)){
+        nums += count(c + 1);
+        removeQueen(r,c);
+      }
+    }
+    return nums;
+  }
 
   public static void main (String[] args){
     QueenBoard test = new QueenBoard(10);
