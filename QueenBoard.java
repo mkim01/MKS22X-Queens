@@ -153,12 +153,11 @@ public class QueenBoard{
     }
 
   public static void main (String[] args){
-    QueenBoard board = new QueenBoard(6);
-  //  QueenBoard board2c = new QueenBoard(8);
+    QueenBoard board = new QueenBoard(14);
+    System.out.println(board.countSolutions());
     System.out.println(board.solve());
-   System.out.println(board);
+    System.out.println(board);
 
-  //  System.out.println("?"+ System.currentTimeMillis());
   //  System.out.println(board2);
   //  System.out.println(board2c.countSolutions());
   //  System.out.print(board2.solve());
