@@ -70,13 +70,13 @@ public class QueenBoard{
 
   */
   public boolean solve(){
-    // for (int i = 0; i < board.length; i++){
-    //   for (int j = 0; j < board.length; j++){
-    //     if(board[i][j]!= 0){
-    //       throw new IllegalStateException();
-    //     }
-    //   }
-    // }
+     for (int i = 0; i < board.length; i++){
+       for (int j = 0; j < board.length; j++){
+        if(board[i][j]!= 0){
+          throw new IllegalStateException();
+        }
+       }
+     }
     return solveR(0);
   }
   // boolean solveR(int col)
